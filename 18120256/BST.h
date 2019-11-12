@@ -5,6 +5,7 @@
 
 class BST
 {
+	bool isRunning = true;
 public:
 
 	BST();
@@ -16,8 +17,11 @@ public:
 	Node* findMin(Node* root);
 	Node* lienSau(Node* root, Node* p);
 	Node* search(Node* root, int key);
+	void searchAll(Node* root, int key);
 	Node* xoaNode(Node* root, int key);
 
+	void menu();
+	void run(Node* &root);
 };
 
 

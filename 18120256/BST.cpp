@@ -85,6 +85,19 @@ Node* BST::search(Node* root, int key)
 		search(root->right, key);
 }
 
+void BST::searchAll(Node* root, int key)
+{
+	if (root == NULL) return;
+	if (root->key == key)
+	{
+		cout << root->key << ", " << root << endl;
+	}
+	if (key < root->key)
+		searchAll(root->left, key);
+	else
+		searchAll(root->right, key);
+}
+
 Node* BST::xoaNode(Node* root, int key)
 {
 	if (root == NULL) return root;
@@ -114,4 +127,49 @@ Node* BST::xoaNode(Node* root, int key)
 		}
 	}
 	return root;
+}
+
+void BST::menu()
+{
+	cout << endl;
+	cout << "1. In cay" << endl;
+	cout << "2. Xoa node" << endl;
+	cout << "3. Tim vi tri node" << endl;
+	cout << "4. Tim tat ca node x" << endl;
+	cout << "0. Thoat" << endl;
+}
+
+void BST::run(Node* &root)
+{
+	int cmd;
+	int tmp;
+	while (isRunning)
+	{
+		menu();
+		cin >> cmd;
+		switch (cmd)
+		{
+		case 1:
+			duyetCay(root);
+			break;
+		case 2:
+			cout << "Nhap gia tri can xoa: ";
+			cin >> tmp;
+			xoaNode(root, tmp);
+			break;
+		case 3:
+			cout << "Nhap gia tri can tim: ";
+			cin >> tmp;
+			cout << search(root, tmp);
+			break;
+		case 4:
+			cout << "Nhap gia tri can tim: ";
+			cin >> tmp;
+			searchAll(root, tmp);
+			break;
+		default:
+			isRunning = false;
+			break;
+		}
+	}
 }

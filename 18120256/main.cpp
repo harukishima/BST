@@ -12,9 +12,12 @@ int main()
 	{
 		tree.insert(root, a[i]);
 	}
-	tree.duyetCay(root);
-	root = tree.xoaNode(root, 10);
-	cout << endl;
-	tree.duyetCay(root);
+	//tree.duyetCay(root);
+	////root = tree.xoaNode(root, 10);
+	//cout << endl;
+	//tree.duyetCay(root);
+	//cout << endl;
+	//tree.searchAll(root, 10);
+	tree.run(root);
 	return 0;
 }
